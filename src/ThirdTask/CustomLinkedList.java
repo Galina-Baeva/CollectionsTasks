@@ -1,31 +1,64 @@
 package ThirdTask;
 
-public class CustomLinkedList<T> {
-    T t;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class CustomLinkedList<T> implements Iterable<T> {
+
+    protected ArrayList<T> list = new ArrayList<>();
     static int size = 0;
-    T next;
 
-    public CustomLinkedList(T t){
-        this.t = t;
+    public CustomLinkedList() {
+        ArrayList<T> list = new ArrayList<>();
+    }
+
+    public void add(T t) {
+        list.add(t);
         size++;
-        next = null;
     }
 
-    public T getT() {
-        return t;
+    public void remove(T t) {
+        if (list.contains(t)) {
+            list.remove(t);
+            size--;
+        }
     }
 
-    public int getSize() {
-        return size;
+    public void reverse(ArrayList<T> reverseList) {
+        for (int i = list.size() - 1; i == 0; i--) {
+            reverseList.add(list.get(i));
+        }
     }
-    public void add(T t){
-        this.next = t;
+
+    public T get(int i) {
+        return list.get(i);
     }
 
+    @Override
+    public Iterator<T> iterator() {
+        Iterator<T> iter = new Iterator<T>() {
+            private int i = 0;
 
+            @Override
+            public boolean hasNext() {
+                return i < size - 1;
+            }
 
+            @Override
+            public T next() {
+                return list.get(i++);
+            }
+        };
+        return null;
+    }
+
+    /*@Override
+    public boolean hasNext() {
+        return list.hasNext();
+    }
+
+    @Override
+    public T next() {
+        return null;
+    }*/
 }
-    /*add an element;
-        remove an element;
-        reverse elements;
-        iterate over the list (create your own Iterator implementation for that) */
