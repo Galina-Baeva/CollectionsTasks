@@ -11,11 +11,15 @@ public class DemoLinkedList {
         list.add("Four");
         list.add("Five");
 
-        list.remove("six");
-
-        for (int i = 0; i < CustomLinkedList.size; i++) {
-            System.out.println(list.get(i));
+        list.remove("Three");
+        for (String s: list) {
+            System.out.println(s);
         }
 
+        list.reverse();
+
+       for (int i = 0; i < list.getSize(); i++) {
+            System.out.println(list.get(i));
+        }
     }
 }

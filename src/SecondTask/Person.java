@@ -32,8 +32,8 @@ public class Person implements Comparable {
     }
 
     public static List<Person> distinct(List<Person> people) {
-        for (int i = 0; i < people.size(); i++)
-            for (int j = 1; j < people.size(); j++) {
+        for (int i = 0; i < people.size() - 1; i++)
+            for (int j = i+1; j < people.size(); j++) {
                 if (people.get(i).comparePerson(people.get(j)) == 0 && i != j) {
                     people.remove(j);
                 }
@@ -62,6 +62,7 @@ public class Person implements Comparable {
 
     @Override
     public int compareTo(Object o) {
+        //if ()
         return 0;
     }
 }

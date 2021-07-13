@@ -1,12 +1,15 @@
 package ThirdTask;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class CustomLinkedList<T> implements Iterable<T> {
 
     protected ArrayList<T> list = new ArrayList<>();
-    static int size = 0;
+    protected int size = 0;
+
+    public int getSize() {
+        return size;
+    }
 
     public CustomLinkedList() {
         ArrayList<T> list = new ArrayList<>();
@@ -24,10 +27,13 @@ public class CustomLinkedList<T> implements Iterable<T> {
         }
     }
 
-    public void reverse(ArrayList<T> reverseList) {
-        for (int i = list.size() - 1; i == 0; i--) {
+
+    public void reverse() {
+        ArrayList<T> reverseList = new ArrayList<>();
+        for (int i = getSize() - 1; i >= 0; i--) {
             reverseList.add(list.get(i));
         }
+        list = reverseList;
     }
 
     public T get(int i) {
@@ -36,29 +42,7 @@ public class CustomLinkedList<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        Iterator<T> iter = new Iterator<T>() {
-            private int i = 0;
-
-            @Override
-            public boolean hasNext() {
-                return i < size - 1;
-            }
-
-            @Override
-            public T next() {
-                return list.get(i++);
-            }
-        };
-        return null;
+        return list.iterator();
     }
 
-    /*@Override
-    public boolean hasNext() {
-        return list.hasNext();
-    }
-
-    @Override
-    public T next() {
-        return null;
-    }*/
 }
