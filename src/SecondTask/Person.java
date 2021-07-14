@@ -62,7 +62,9 @@ public class Person implements Comparable {
 
     @Override
     public int compareTo(Object o) {
-        //if ()
+        if (o instanceof Person) {
+            return comparePerson(o);
+        }
         return 0;
     }
 }

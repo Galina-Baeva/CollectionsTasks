@@ -17,7 +17,7 @@ public class DemoPerson {
         secondSet.add(new Person("Anna", 19));
         secondSet.add(new Person("Ivan", 25));
 
-        firstSet.sort(Person::comparePerson);
+        firstSet.sort(Person::compareTo);
         Collections.sort(secondSet, (p1, p2) -> {
             return p1.name.compareTo(p2.name);
         });
